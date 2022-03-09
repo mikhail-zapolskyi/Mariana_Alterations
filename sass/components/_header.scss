@@ -1,0 +1,279 @@
+//HEADER MAIN PAGE
+.header {
+    position: relative;
+        background-image: url(../image/img2.jpg);
+        background-size: cover;
+        background-position: top;
+        width: 100%;
+        height: 92vh;
+
+        @include responsive(big-desktop){
+            height: 94vh;
+        }
+        @include responsive(tab-port){
+            height: 96vh;
+        }
+// header logo and menu icon postion
+    &__logobox {
+        position: absolute;
+        top: 1rem;
+        left: 4rem;
+        animation: slideLeft 3s ease;
+        z-index: 1000;
+    }
+
+    &--logo {
+        width: 16rem;
+        height: 12rem;
+    }
+// Hero section position
+    &__txt {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        
+        &--primary {
+            transform: translateY(-5rem);
+            font-size: 6rem;
+            font-weight: 300;
+            font-family: $font-secondary;
+            letter-spacing: 0.2rem;
+            color: $rich-black;
+        }  
+        &--secondary {
+            font-size: 5rem;
+            font-weight: 200;
+            font-family: $font-primary;
+            letter-spacing: .3rem;
+            color: $red-crayola;
+        }
+
+        @include responsive(tab-land){
+            &--primary {
+                transform: translateY(-2rem);
+                font-size: 5rem;
+                letter-spacing: 0;
+            }  
+            &--secondary {
+                font-size: 4rem;
+                font-weight: 300;
+                letter-spacing: 0;
+            }
+        }
+        @include responsive(tab-port){
+            &--primary {
+                font-size: 4rem;
+                font-weight: 700;
+            }  
+            &--secondary {
+                font-size: 3rem;
+                font-weight: 700;
+            }
+        }
+        @include responsive(phone){
+            &--primary {
+                font-size: 5rem;
+                font-weight: 700;
+            }  
+            &--secondary {
+                font-size: 4rem;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+// HEADER BOTTOM MENU
+
+.header__menu-bottom {
+    width: 80vw;
+    height: 12rem;
+    background-color: $pale-pink;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: .2rem;
+    @include grid-12;
+    box-shadow: 0 .5rem 4rem rgba($lavender-grey, 0.8);
+
+    @include responsive(big-desktop){
+        width: 90vw;
+        height: 10rem;
+    }
+    @include responsive(tab-land){
+        height: 10rem;
+    }
+    @include responsive(tab-port){
+        height: 8rem;
+    }
+    @include responsive(phone){
+        display: none;
+        visibility: hidden;
+    }
+    &--box {
+        @include grid-12;
+    }
+
+    &--list {
+        @include grid-col-5;
+        align-items: center;
+        grid-gap: 1rem;
+    }
+
+    &--item {
+        width: 100%;
+        height: max-content;
+        text-align: center;
+    }
+
+    &--link{
+        &:link, 
+        &:active,
+        &:visited {
+            padding: 1rem;
+            color: $rich-black;
+            font-family: $font-secondary;
+            font-size: 1rem;
+            font-weight: 700;
+            display: inline-block;
+            border-radius: 3px;
+            @include responsive(tab-port){
+                font-size: 1rem;
+            }
+        }
+        
+        &:hover{
+            color: $light-coral;
+            transform: scale(1.1);
+        }
+    }
+    &--facebook:hover {
+        color: blue;
+    }
+}
+
+
+// SERVICES HEADER
+.header__secondary {
+        position: relative;
+        width: 100%;
+        height: 92vh;
+}
+
+.services__header {
+    position: relative;
+    width: 100%;
+    height: 92vh;
+    background-color: $color-main;
+
+    &-sircles {
+        position: absolute;
+        @include screen-center;
+        @include grid-col-2;
+        @include responsive(tab-port){
+            display: block;
+        }
+        &-left,
+        &-right {
+        width: 30rem;
+        height: 30rem;
+        margin: 0 5rem;
+        background-color: rgba($pale-pink, .8);
+        border-radius: 50%;
+        
+        }
+        &-left {
+            animation: movement-up-down-1 4s infinite linear;
+        }
+        &-right {
+            animation: movement-up-down-2 3.8s infinite linear;
+        }
+    }
+    &-text {
+        position: absolute;
+        @include screen-center;
+        width: 100%;
+        height: 92vh;
+    }
+    &--hero-box {
+        width: 80%;
+        position: absolute;
+        @include screen-center;
+        @include responsive(phone){
+            width: 100%;
+        }
+    }
+
+    &--hero {
+        @include grid-col-18;
+        @include grid-row-4;
+
+        &-txt {
+            font-family: $font-secondary;
+            font-size: 5rem;
+            text-align: center; 
+            
+            &-left {
+                grid-column-start: 2;
+                grid-column-end: 10;
+                grid-row-start: 2;
+            }
+            &-right {
+                grid-column-start: 8;
+                grid-column-end: 18;
+                grid-row-start: 3;
+            }
+
+            @include responsive(tab-port){
+                &-left {
+                    margin-top: 2rem;
+                }
+                &-right {
+                    margin-top: -2rem;
+                }
+            }
+            @include responsive(phone){
+                font-size: 4rem;
+                &-left {
+                    margin-top: 5rem;
+                }
+                &-right {
+                    margin-top: 2rem;
+                }
+            }
+            
+        }
+    
+        &-par {
+            font-family: $font-primary;
+            font-size: 2rem;
+            text-transform: lowercase;
+
+            &-right{
+                grid-column-start: 12;
+                grid-column-end: 18;
+                grid-row-start: 2;
+                margin-bottom: 5rem;
+            }
+
+            &-left {
+                grid-column-start: 2;
+                grid-column-end: 7;
+                grid-row-start: 3;
+            }
+            @include responsive(phone){
+                &-left {
+                    margin-top: 4rem;
+                }
+                &-right {
+                    margin-top: 0;
+                }
+            }
+        }
+
+    }
+}

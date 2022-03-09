@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    @include responsive(big-desktop){
+        font-size: 75%; // 1rem = 12px, 12 / 16 = 75%
+    }  
+    @include responsive(tab-port){
+        font-size: 56.25%;   // 1rem = 9px, 9 / 16 = 56.25%
+    } 
+    @include responsive(phone){
+        font-size: 43.75%; // 1rem = 7px, 7 / 16 = 43.75%
+    }
+    
+    
+}    
+body {
+    display: block;
+    max-width: 100vw;
+}
+a {
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}

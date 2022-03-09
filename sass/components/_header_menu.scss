@@ -1,0 +1,165 @@
+// // Closed menu icon design and postion
+.header__menu {
+    position: fixed;
+    top: 1.5rem;
+    right: 3rem;
+    width: 8rem;
+    height: 8rem;
+    z-index: 100;
+
+    
+    // background-color: hotpink;
+
+    &-checkbox {
+        display: none;
+    }
+
+    &-icon--box {
+        width: 5rem;
+        height: 2.5rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        // background-color: green;
+        cursor: pointer;
+        z-index: 150;
+    }
+    
+    &-icon {
+        width: 100%;
+        height: 0.3rem;
+        display: inline-block;
+        background-color: $red-crayola;
+        position: absolute;
+        @include border-radius-10;
+
+            // menu lines
+        &--top {
+            top: 10%;
+            animation: slideIn 2s linear;
+        }
+    
+        &--middle {
+            top: 50%;
+            animation: slideIn 1.5s linear;
+            transition: opacity .5s;
+        }
+    
+        &--bottom {
+            top: 90%;
+            animation: slideIn 1s linear;
+        }
+    }
+
+    &:hover &-icon--top {
+        top: 0;
+    }
+
+    &:hover &-icon--bottom {
+        top: 100%;
+    }
+
+    &-checkbox:checked + &-icon--box &-icon--top {
+        transform: rotate(45deg);
+        top: 50%;
+        animation: slideRight 0.8s ease;
+    }
+
+    &-checkbox:checked + &-icon--box &-icon--middle {
+        display: none;
+    }
+    &-checkbox:checked + &-icon--box &-icon--bottom {
+        transform: rotate(-45deg);
+        top: 50%;
+        animation: slideLeft 0.8s ease;
+    }
+
+    // MENU WINDOW
+    &--window {
+        width: 100%;
+        height: 100vh;
+        background-color: $color-main;
+        position: fixed;
+        top: -100%;
+        left: 0;
+        font-size: 5rem;
+        z-index: 10;
+        opacity: 0;
+        visibility: hidden;
+        
+        &--main, 
+        &--secondary {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        &--main:first-child {
+            margin-top: 20rem;
+            padding-bottom: 5rem;
+        }
+
+        // MENU DIVIDER
+        &-divider {
+            width: 25%;
+            margin: 0 auto;
+            margin-bottom: 5rem;
+        }
+
+        &--list {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            text-align: center;
+            font-family: $font-primary;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.8;
+            letter-spacing: .5rem;
+        }
+
+        &-item {
+            padding: 1rem 0;
+        }
+
+        &--link {
+            &:link,
+            &:visited {
+                display: block;
+                color: $light-coral;
+                transition: all .4s;
+            }
+
+            &:hover,
+            &:active {
+                color: $rich-black;
+                transform: translate(1rem) scaleY(1.1);
+            }
+        }
+        &--facebook {
+            &:hover,
+            &:active {
+                color: blue;
+            }
+        }
+    }
+    &-checkbox:checked ~ &--window {
+        top: 0;
+        opacity: 1;
+        visibility: visible;
+        animation: menu-down .8s cubic-bezier(0.51, 0.06, 0.58, 0.06);
+    }
+    &-checkbox:not(checked) ~ &--window {
+        top: -100;
+        opacity: 0;
+        visibility: hidden;
+        transition: 1s cubic-bezier(0.51, 0.06, 0.58, 0.06);
+    }
+}
+
+
+
+
+
+
+

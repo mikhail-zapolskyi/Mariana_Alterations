@@ -1,0 +1,154 @@
+.brake40vh {
+    width: 100%;
+    height: 40vh;
+    @include responsive(tab-port){
+        height: 10vh;
+    }
+}
+.brake20vh {
+    width: 100%;
+    height: 20vh;
+    @include responsive(tab-port){
+        display: none;
+    }
+}
+
+.footer {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-flow: column wrap;
+    padding-top: 5rem;
+
+    &__main {
+        padding: 10rem;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+
+        @include responsive(phone){
+            padding: 0;
+            display: block;
+            padding-bottom: 3rem;
+        }
+    }
+
+    &__tab {
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+        flex: 33%;
+
+        @include responsive(tab-land){
+            flex: 50%;
+        }
+        
+    }
+    @include responsive(tab-land){
+        &__tab-land {
+            display: none;
+        }
+    }
+
+    @include responsive(tab-port){
+        &__mobile {
+        display: none;
+        }
+    }
+
+    &__link--logo {
+        display: block;
+        width: 24rem;
+        height: auto;
+    }
+
+    &__logo {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    &__head {
+        font-family: $font-primary;
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: .8rem;
+        text-transform: uppercase;
+        margin-bottom: 3rem;
+
+        @include responsive(phone){
+            font-size: 3.2rem;
+        }    
+    }
+
+    &__list {
+        list-style: none;
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+
+    &__link {
+        font-family: $font-secondary;
+        font-size: 1.4rem;
+        position: relative;
+
+        &:link,
+        &:visited,
+        &:active {
+            text-decoration: none;
+            color: $rich-black;
+            display: inline-block;
+            font-size: 1.6rem;
+            @include responsive(phone){
+                font-size: 2rem;
+            }
+        }
+
+        &:hover {
+            color: $light-coral;
+        }
+
+        &-facebook:hover {
+            color: blue;
+        }
+    }
+
+    
+    
+    &__send-top {
+        position: absolute;
+        top: 80%;
+        left: 97%;
+        transform: translate(-50%, -50%);
+        width: 5rem;
+        height: 5rem;
+        background-color: rgba($light-coral, .7);
+        border-radius: 50%;
+        margin-top: 5rem;
+        @include responsive(tab-port){
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: translate(0);
+            border-radius: 0;
+            width: 100%;
+            height: 8rem;
+        }
+    }
+
+    &__send-top-link {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $color-main;
+        font-size: 5rem;
+    }
+}

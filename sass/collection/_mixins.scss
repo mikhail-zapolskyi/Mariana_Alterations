@@ -1,0 +1,153 @@
+@mixin clearfix {
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin border-test {
+    border: 2px solid black;
+}
+
+// BORDER Radius
+@mixin border-radius-20 {
+    border-radius: 20rem;
+}
+@mixin border-radius-10 {
+    border-radius: 10rem;
+}
+@mixin border-radius-8 {
+    border-radius: 8rem;
+}
+@mixin border-radius-5 {
+    border-radius: 5rem;
+}
+@mixin border-radius-2 {
+    border-radius: 2rem;
+}
+@mixin border-radius-1 {
+    border-radius: 1rem;
+}
+@mixin border-radius-03 {
+    border-radius: 0.3rem;
+}
+
+// margin center
+@mixin margin-center {
+    margin: 0 auto;
+}
+
+// Grid 
+@mixin grid-12 {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+@mixin grid-6 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+@mixin grid-4 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+@mixin grid-3 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+@mixin grid-2 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+@mixin grid-2 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+@mixin grid-col-18 {
+    display: grid;
+    grid-template-columns: repeat(18, minmax(0, 1fr));
+}
+@mixin grid-row-18 {
+    display: grid;
+    grid-template-rows: repeat(18, minmax(0, 1fr));
+}
+@mixin grid-col-10 {
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+@mixin grid-col-5 {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+@mixin grid-row-4 {
+    display: grid;
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+}
+@mixin grid-row-2 {
+    display: grid;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+@mixin grid-col-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@mixin center-position {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+@mixin screen-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+// RESPONSIVE MIXIN 
+
+/*
+    0-600px - phone
+    601-900px - tab-port
+    901-1200px - tab-land
+    1201 - 1800px present state
+    1800+ - big desktop
+*/
+
+@mixin responsive($breakpoint){
+    // WIDTH
+    @if $breakpoint == screen375 {
+        @media (max-width: 23.4375em) {@content};   //375px / 16px = 23.4375em
+    }
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) {@content};   //600px / 16px = 37.5em
+    } 
+    @if $breakpoint == screen800 {
+        @media (max-width: 50em) {@content};   //800px / 16px = 50em
+    } 
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) {@content};   //900px / 16px = 56.25em
+    } 
+    @if $breakpoint == screen1000 {
+        @media (max-width: 62.5em) {@content};   //1000px / 16px = 62.5em
+    }
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) {@content};  //1200px / 16px = 75em
+    } 
+    @if $breakpoint == screen1250 {
+        @media (max-width: 78.125em) {@content};  //1250px / 16px = 78.125em
+    }
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) {@content};  //1800px / 16px = 112.5em
+    }
+    
+    // HEIGHT
+    @if $breakpoint == screenHeight600 {
+        @media (max-height: 37.5em) {@content};   //600px / 16px = 37.5em
+    }
+
+    @if $breakpoint == screenHeight400 {
+        @media (max-height: 25em) {@content};   //400px / 16px = 25em
+    }
+}

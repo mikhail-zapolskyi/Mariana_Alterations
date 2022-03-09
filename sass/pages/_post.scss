@@ -1,0 +1,76 @@
+.post {
+    &__main {
+        box-sizing: border-box;
+        max-width: 80vw;
+        margin: 0 auto;
+    }
+
+    &__article {
+            padding: 10rem 0;
+            display: grid;
+            border-bottom: 2px solid $pale-pink;
+            grid-template-rows: auto;
+            grid-template-columns: [col-start] 5rem [text-start] 80% [text-end] 5rem [col-end];
+            align-items: start;
+            justify-items: center;
+            justify-content: center;
+        &>* {
+            margin-bottom: 2rem;
+        }
+
+        &-image {
+            width: 25rem;
+            height: 25rem;
+            grid-column: col-start / col-end;
+        }
+
+        &-header{
+            font-family: $font-third;
+            font-size: 2.4rem;
+            text-align: center;
+            grid-column: text-start / text-end;
+        }
+
+        &-text {
+            font-family: $font-primary;
+            font-size: 1.8rem;
+            grid-column: col-start / col-end;
+            text-align: justify;
+
+            @include responsive(tab-port){
+                font-size: 2rem;
+                line-height: 1.5;
+            }
+            @include responsive(tab-port){
+                font-size: 2.4rem;
+            }
+        }
+
+        &-link {
+            grid-column: text-start / text-end;
+            width: 20rem;
+            padding: 1.5rem;
+            background-color: $pale-pink;
+            text-decoration: none;
+            text-align: center;
+            color: $rich-black;
+            font-family: $font-secondary;
+            font-size: 1.4rem;
+              
+            &:hover {
+                box-shadow: 0 1rem 2rem rgba($lavender-grey, .6);
+                transform: translateX(.5rem) scale(1.1);
+            }
+        
+            &:active {
+                box-shadow: 0 1rem 2rem rgba($lavender-grey, .6);
+                transform: translateX(.5rem) scale(1);
+            }
+        }
+
+        &-date {
+            grid-column: text-start / text-end;
+            font-size: 1.4rem;
+        }
+    }
+}

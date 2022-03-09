@@ -1,0 +1,262 @@
+.contact {
+
+    &__header {
+        max-width: 100%;
+        height: 92vh;
+        display: block;
+        position: relative;
+
+        &-container {
+            width: 100vw;
+            max-width: 100%;
+            height: 50vh;
+            position: absolute;
+            @include screen-center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+            justify-content: space-around;
+            justify-items: center;
+            align-content: space-around;
+
+            &-left, 
+            &-right{
+                max-width: 100%;
+                width: 80%;
+            }
+
+            @include responsive(screen375){
+                grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+                &-left, 
+                &-right {
+                    width: 30rem;
+                }
+            }
+
+            @include responsive(screenHeight600){
+                margin-top: 10vh;
+                height: 70vh;
+            }
+            
+        }
+
+        &--title {
+            font-family: $font-third;
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.3;
+            @include responsive(tab-land){
+                font-size: 3rem;
+            }
+            &-phone {
+                font-size: 4rem;
+                & a {
+                    color: $light-coral;
+                }
+            }
+        }
+    }
+
+    //  FORM SECTION    
+    &__form {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        background-image: url(../image/img1.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: $pale-pink;
+        }
+
+        &-container {
+            width: 80%;
+            height: 60vh;
+            position: absolute;
+            @include screen-center;
+            background-color: $color-main;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+
+            @include responsive(screen1250){
+                grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            }
+
+            @include responsive(screen1000){
+                grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+            }
+
+            @include responsive(screen800){
+                height: 80vh;
+                grid-template-columns: 1fr;
+            }
+
+            @include responsive(phone) {
+                height: 70vh;
+            } 
+
+            @include responsive(screenHeight600){
+                width: 100%;
+                height: 50vh;
+                top: 40%;
+            }
+
+            &-left {
+                padding: 3rem;
+
+                @include responsive(screenHeight600){
+                    display: flex;
+                    flex-flow: row wrap;
+                }
+            }
+
+            &-right {
+                padding: 3rem;
+                position: relative;
+            }
+        }
+        
+        &-text {
+            width: 80%;
+            margin: 0 auto;
+            position: relative;
+
+            &:not(:last-child) {
+                margin-bottom: 5rem;
+            }     
+            
+        }
+
+        &-input {
+            width: 100%;
+            max-width: 100%;
+            height: 5rem;
+            border: none;
+            text-align: center;
+            background-color: $color-main;
+            font-family: $font-primary;
+            font-size: 1.5rem;
+
+            &:focus {
+                outline: none;
+                border-bottom: 2px $pale-pink solid;
+                box-shadow: 0 .2rem 2rem rgba($rich-black, .2);
+            }
+        }
+
+        &-lable {
+            position: absolute;
+            display: block;
+            font-family: $font-primary;
+            font-size: 1.2rem;
+            transition: all .5s;
+        }
+
+        &-input:placeholder-shown + &-lable {
+            visibility: hidden;
+            opacity: 0;
+            transform: translate(12rem, -3rem);
+        }
+
+        &-textarea {
+
+            &-input {
+                border: none;
+                background-color: $color-main;
+                min-width: 100%;
+                min-height: 15rem;
+                font-family: $font-primary;
+                font-size: 1.5rem;
+                text-align: center;
+
+                @include responsive(screenHeight600){
+                    min-height: 8rem;
+                }
+
+                &:focus {
+                    outline: none;
+                    border: 2px $pale-pink solid;
+                    box-shadow: 0 .2rem 2rem rgba($rich-black, .2);
+                }
+            }
+
+            &-lable {
+                position: absolute;
+                display: block;
+                font-family: $font-primary;
+                font-size: 1.2rem;
+                transition: all .5s;
+            }
+
+            &-input:placeholder-shown + &-lable {
+                visibility: hidden;
+                opacity: 0;
+                transform: translate(12rem, -3rem);
+            }
+        }
+
+        &-btn {
+            position: absolute;
+            top: 100%;
+            left: 85%;
+            
+            
+            &--submit {
+                position: absolute;
+                @include screen-center;
+                background-color: $light-coral;
+                width: 12rem;
+                height: 12rem;
+                border-radius: 50%;
+                border: none;
+                outline: none;
+                cursor: pointer;
+            }
+
+            &--icon {
+                position: relative;
+                font-size: 2rem;
+                display: inline-block;
+                transform: rotate(15deg);
+            }
+
+            &:hover &--submit {
+                animation: submit-btn-scale .5s ease;
+                width: 13.5rem;
+                height: 13.5rem;
+            }
+
+            &:hover &--icon {
+                animation: submit-btn-icon-fly .3s linear;
+            }
+
+            @include responsive(screen1000){
+                left: 75%;
+                &--submit {
+                    width: 9rem;
+                    height: 9rem;
+                }
+            }
+        }
+    }
+
+    &__alert {
+        padding: 0 .3rem;
+        background-color: $red-crayola;
+        font-family: $font-primary;
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $color_main;
+        text-align: center;
+        float: right;
+    }
+    
+}

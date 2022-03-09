@@ -1,0 +1,18 @@
+// COLLECTIONS 
+@import "collection/variables.scss";
+@import "collection/animation.scss";
+@import "collection/mixins.scss";
+// BASE
+@import "base/base.scss";
+@import "base/typography.scss";
+//COMPONENTS
+@import "components/header_menu.scss";
+@import "components/header.scss";
+@import "components/footer.scss";
+// PAGES 
+@import "pages/home.scss";
+@import "pages/services.scss";
+@import "pages/contact.scss";
+@import "pages/blog.scss";
+@import "pages/post.scss";
+@import "pages/error.scss";
